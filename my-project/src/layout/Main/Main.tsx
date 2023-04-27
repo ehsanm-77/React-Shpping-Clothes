@@ -3,8 +3,8 @@ import { dbType } from '../../type';
 
 export const Main = ({ db }) => {
   return (
-    <>
-      <section>
+    <div className="flex">
+      <section className="w-2/3">
         <header className="flex justify-between p-2 border-b-2">
           <div>6 Products</div>
           <div className="flex gap-3">
@@ -40,9 +40,9 @@ export const Main = ({ db }) => {
             )}
         </main>
       </section>
-      <section>
+      <section className="flex flex-col items-center w-1/3">
         <div>Cart is Empty</div>
       </section>
-    </>
+    </div>
   );
 };

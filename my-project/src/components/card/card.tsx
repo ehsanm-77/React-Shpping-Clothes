@@ -2,7 +2,7 @@ import { Icardprops } from '../../type';
 export const Card = ({ className, item }: Icardprops) => {
   return (
     <div className="col-span-1 flex flex-col gap-1">
-      <img src={item.url} className="h-[400px] gap-2" alt="" />
+      <img src={item.url} className="h-[400px] gap-2  w-96" alt="" />
       <h1>{item.title}</h1>
       <div className="flex justify-between">
         <h1>$ {item.price}</h1>
