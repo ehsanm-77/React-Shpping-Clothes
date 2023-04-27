@@ -1,4 +1,7 @@
-export const Main = () => {
+import { Card } from '../../components/card/Card';
+import { dbType } from '../../type';
+
+export const Main = ({ db }) => {
   return (
     <>
       <section>
@@ -24,25 +27,22 @@ export const Main = () => {
             </select>
           </div>
         </header>
-        <main className="grid grid-cols-1 md:grid-cols-3 p-5">
-          <div className="col-span-1 flex flex-col gap-1">
-            <img
-              src="https://react-shopping-cart-seven-lovat.vercel.app/images/dress5.jpg"
-              className="h-[400px] gap-2"
-              alt=""
-            />
-
-            <h1>Frill mini dress in yellow polka dot</h1>
-
-            <div className="flex justify-between">
-              <h1>$10.9</h1>
-
-              <button className="px-3 py-1 bg-[#F0C041]">Add To Cart</button>
-            </div>
-          </div>
+        <main className="grid grid-cols-1 md:grid-cols-3 p-5 gap-4">
+          {db &&
+            db.map(
+              (item: {
+                id: number;
+                title: string;
+                url: string;
+                price: number;
+                desc: string;
+              }) => <Card className={'p-1'} item={item} />
+            )}
         </main>
       </section>
-      <section></section>
+      <section>
+        <div>Cart is Empty</div>
+      </section>
     </>
   );
 };
