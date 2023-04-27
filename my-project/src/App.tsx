@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Header } from './layout/Harder/header';
-import { Main } from './layout/Main/main';
 import { Footer } from './layout/Footer/footer';
+import { Main } from './layout/Main/Main';
 
 function App() {
   return (
