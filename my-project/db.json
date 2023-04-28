@@ -2,45 +2,85 @@
   "products": [
     {
       "id": 1,
+
       "title": "Frill mini dress in yellow polka dot",
+
       "url": "https://react-shopping-cart-seven-lovat.vercel.app/images/dress5.jpg",
+
       "price": 10,
-      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you."
+
+      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+
+      "size": ["XS", "S", "XL", "XXL", "ALL"]
     },
+
     {
       "id": 2,
+
       "title": "Midi dress in pink ditsy floral",
+
       "url": "https://react-shopping-cart-seven-lovat.vercel.app/images/dress3.jpg",
+
       "price": 20,
-      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you."
+
+      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+
+      "size": ["XS", "S", "M", "XXL", "ALL"]
     },
+
     {
       "id": 3,
+
       "title": "Midi sundress with ruched front",
+
       "url": "https://react-shopping-cart-seven-lovat.vercel.app/images/dress2.jpg",
+
       "price": 12,
-      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you."
+
+      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+
+      "size": ["XS", "S", "XXL", "ALL"]
     },
+
     {
       "id": 4,
+
       "title": "cami maxi dress in polka dot",
+
       "url": "https://react-shopping-cart-seven-lovat.vercel.app/images/dress4.jpg",
+
       "price": 22,
-      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you."
+
+      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+
+      "size": ["XS", "S", "ALL"]
     },
+
     {
       "id": 5,
+
       "title": "Midi sundress with shirring detail",
+
       "url": "https://react-shopping-cart-seven-lovat.vercel.app/images/dress1.jpg",
+
       "price": 10,
-      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you."
+
+      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+
+      "size": ["XS", "S", "L", "XL", "ALL"]
     },
     {
       "id": 6,
+
       "title": "Frill mini dress in yellow polka dot",
+
       "url": "https://react-shopping-cart-seven-lovat.vercel.app/images/dress6.jpg",
+
       "price": 38,
-      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you."
+
+      "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+
+      "size": ["S", "M", "L", "XL", "ALL"]
     }
   ]
 }

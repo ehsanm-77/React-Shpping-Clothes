@@ -1,29 +1,44 @@
+import { useEffect, useState } from 'react';
 import { Card } from '../../components/card/Card';
-import { dbType } from '../../type';
+import { Imain } from '../../type';
 
-export const Main = ({ db }) => {
+export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
   return (
     <div className="flex">
       <section className="w-2/3">
         <header className="flex justify-between p-2 border-b-2">
-          <div>6 Products</div>
+          <div>{db && db.length} Products</div>
           <div className="flex gap-3">
             <label htmlFor="">Order</label>
-            <select name="" className="border border-black rounded-sm" id="">
-              <option value="">lowest</option>
-              <option value="">highest</option>
+            <select
+              onChange={(e) => {
+                handleOrder(e.target.value);
+              }}
+              name=""
+              className="border border-black rounded-sm"
+              id=""
+            >
+              <option value="lowest">lowest</option>
+              <option value="highest">highest</option>
             </select>
           </div>
           <div className="flex gap-3">
             <label htmlFor="">Filter</label>
-            <select name="" className="border border-black rounded-sm" id="">
-              <option value="">All</option>
-              <option value="">XS</option>
-              <option value="">S</option>
-              <option value="">M</option>
-              <option value="">L</option>
-              <option value="">XL</option>
-              <option value="">XXL</option>
+            <select
+              onChange={(e) => {
+                handleFilter(e.target.value);
+              }}
+              name=""
+              className="border border-black rounded-sm"
+              id=""
+            >
+              <option value="ALL">ALL</option>
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
             </select>
           </div>
         </header>
@@ -36,7 +51,7 @@ export const Main = ({ db }) => {
                 url: string;
                 price: number;
                 desc: string;
-              }) => <Card className={'p-1'} item={item} />
+              }) => <Card key={item.id} className={'p-1'} item={item} />
             )}
         </main>
       </section>

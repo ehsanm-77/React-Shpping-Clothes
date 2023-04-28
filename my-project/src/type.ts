@@ -14,7 +14,10 @@ export type dbType = {
   url: string;
   price: number;
   desc: string;
+  size: string[];
 };
 export interface Imain {
-  db: dbType;
+  db: dbType[];
+  handleFilter: (selectedSize: string) => void;
+  handleOrder: (selectedSize: string) => void;
 }
