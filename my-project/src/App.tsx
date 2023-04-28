@@ -3,6 +3,7 @@ import { Header } from './layout/Harder/header';
 import { Footer } from './layout/Footer/footer';
 import { Main } from './layout/Main/Main';
 import { dbType } from './type';
+import { MyDialog } from './components/modal/model';
 
 function App() {
   const [db, setDb] = useState<dbType[]>();
@@ -16,7 +17,6 @@ function App() {
     setOrder(selectedOrder);
   };
   useEffect(() => {
-    console.log(order);
     let url = 'http://localhost:3000/products?';
     if (size !== 'ALL') {
       url += `q=${size}&`;
