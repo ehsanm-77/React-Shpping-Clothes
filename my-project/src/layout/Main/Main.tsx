@@ -30,6 +30,17 @@ export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
     }
     setItemArr(updatedItemArr);
   };
+  const handleRemoveItem = (id: number) => {
+    const updatedItemArr = itemArr.filter((item) => item.id !== id);
+    setItemArr(updatedItemArr);
+  };
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    for (const item of itemArr) {
+      totalPrice += item.price * item.quantity;
+    }
+    return totalPrice;
+  };
   return (
     <>
       <div className="flex">
@@ -102,28 +113,45 @@ export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
               ? `You have ${itemArr.length} in the Cart`
               : 'Cart is Empty'}
           </div>
-          {itemArr.length > 0 ? (
-            itemArr.map((item) => (
-              <div key={item.id} className="flex justify-between mt-8">
-                <img className="w-20" src={item.url} alt="" />
-                <div>
-                  <div className="h-full flex flex-col justify-between">
-                    <div className="ml-3">{item.title}</div>
-                    <div className="flex ml-auto gap-3 items-center">
-                      <div className="ml-3">
-                        $ {item.price} x {item.quantity}
+          <div className="h-[420px] overflow-y-scroll ml-auto mr-3">
+            {itemArr.length > 0 ? (
+              itemArr.map((item) => (
+                <div
+                  key={item.id}
+                  className="w-full px-10 flex justify-between mt-8"
+                >
+                  <img className="w-20" src={item.url} alt="" />
+                  <div>
+                    <div className="h-full flex flex-col justify-between">
+                      <div className="ml-3">{item.title}</div>
+                      <div className="flex ml-auto gap-3 items-center">
+                        <div className="ml-3">
+                          $ {item.price} x {item.quantity}
+                        </div>
+                        <button
+                          className="bg-red-400 border rounded-md shadow-md p-1 text-white"
+                          onClick={() => handleRemoveItem(item.id)}
+                        >
+                          Remove
+                        </button>
                       </div>
-                      <button className="bg-yellow-100 border rounded-xl shadow-md p-1">
-                        Remove
-                      </button>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <div className="flex justify-between mt-8"></div>
-          )}
+              ))
+            ) : (
+              <div className="flex justify-between mt-8"></div>
+            )}
+          </div>
+
+          <div className="w-full px-10 mt-10 flex justify-between">
+            <div>Total : $ {calculateTotalPrice()}</div>
+            <div>
+              <button className="px-3 py-1 bg-[#F0C041] rounded-xl shadow-md">
+                Proceed
+              </button>
+            </div>
+          </div>
         </section>
       </div>
       <MyDialog
