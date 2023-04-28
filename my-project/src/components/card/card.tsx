@@ -6,16 +6,11 @@ export const Card = ({
   setIsOpen,
   item,
   setModalItem,
-  setItemArr,
-  itemArr,
+  addToCart,
 }: Icardprops) => {
-  const addToCart = () => {
-    setItemArr([...itemArr, item]);
+  const handleAddToCart = () => {
+    addToCart(item);
   };
-
-  useEffect(() => {
-    console.log(itemArr);
-  }, [itemArr]);
 
   return (
     <div className="col-span-1 flex flex-col justify-between gap-1 shadow-md p-2 rounded-md">
@@ -33,7 +28,7 @@ export const Card = ({
       <div className="flex justify-between">
         <h1 className="drop-shadow-md">$ {item.price}</h1>
         <button
-          onClick={addToCart}
+          onClick={handleAddToCart}
           className="px-3 py-1 bg-[#F0C041] rounded-xl shadow-md"
         >
           Add To Cart

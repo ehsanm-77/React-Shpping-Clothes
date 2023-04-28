@@ -1,6 +1,8 @@
 export interface Icardprops {
   className: string;
   item: {
+    quantity: number;
+
     id: number;
     title: string;
     url: string;
@@ -39,8 +41,10 @@ export interface Icardprops {
     }>
   >;
   itemArr: Ialikhadmbashi[];
+  addToCart: (item: Ialikhadmbashi) => void;
 }
 export interface Ialikhadmbashi {
+  quantity: number;
   id: number;
   title: string;
   url: string;
@@ -49,6 +53,7 @@ export interface Ialikhadmbashi {
   size: [];
 }
 export type dbType = {
+  quantity: number;
   id: number;
   title: string;
   url: string;
@@ -85,6 +90,16 @@ export interface Imodal {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen: boolean;
   modalItem: {
+    id: number;
+    title: string;
+    url: string;
+    price: number;
+    desc: string;
+    size: string[];
+  };
+  addToCart: (item: Ialikhadmbashi) => void;
+  item: {
+    quantity: number;
     id: number;
     title: string;
     url: string;

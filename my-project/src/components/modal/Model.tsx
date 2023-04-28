@@ -2,7 +2,17 @@ import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Imodal } from '../../type';
 
-export const MyDialog = ({ setIsOpen, isOpen, modalItem }: Imodal) => {
+export const MyDialog = ({
+  setIsOpen,
+  isOpen,
+  modalItem,
+  addToCart,
+  item,
+}: Imodal) => {
+  const handleAddToCart = () => {
+    console.log(item);
+    addToCart(item);
+  };
   return (
     <>
       <Dialog
@@ -29,7 +39,10 @@ export const MyDialog = ({ setIsOpen, isOpen, modalItem }: Imodal) => {
                   <div>Price : $ {modalItem.price}</div>
                   <button
                     className="px-3 py-1 bg-[#F0C041] rounded-xl shadow-md focus:outline-none"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      handleAddToCart(); // <-- Invoke the function with ()
+                      setIsOpen(false);
+                    }}
                   >
                     Add To Cart
                   </button>
@@ -38,7 +51,6 @@ export const MyDialog = ({ setIsOpen, isOpen, modalItem }: Imodal) => {
             </div>
           </Dialog.Panel>
         </div>
-        {/* <div className="absolute top-0 bg-gray-400"></div> */}
       </Dialog>
     </>
   );

@@ -6,19 +6,30 @@ import { MyDialog } from '../../components/modal/model';
 export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
   const [modalItem, setModalItem] = useState({
     id: 1,
-
-    title: 'Frill mini dress in yellow polka dot',
-
+    title: 'Frill mini',
     url: 'https://react-shopping-cart-seven-lovat.vercel.app/images/dress5.jpg',
-
     price: 10,
-
-    desc: 'This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.',
-
+    desc: 'This',
     size: ['XS', 'S', 'XL', 'XXL', 'ALL'],
   });
   const [isOpen, setIsOpen] = useState(false);
   const [itemArr, setItemArr] = useState<Ialikhadmbashi[]>([]);
+
+  const addToCart = (item: Ialikhadmbashi) => {
+    const updatedItemArr = [...itemArr];
+    const itemIndex = updatedItemArr.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+    if (itemIndex !== -1) {
+      updatedItemArr[itemIndex] = {
+        ...updatedItemArr[itemIndex],
+        quantity: updatedItemArr[itemIndex].quantity + 1,
+      };
+    } else {
+      updatedItemArr.push({ ...item, quantity: 1 });
+    }
+    setItemArr(updatedItemArr);
+  };
   return (
     <>
       <div className="flex">
@@ -79,23 +90,28 @@ export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
                     setModalItem={setModalItem}
                     setItemArr={setItemArr}
                     itemArr={itemArr}
+                    addToCart={addToCart}
                   />
                 )
               )}
           </main>
         </section>
         <section className="flex flex-col items-center w-1/3">
-          <div className=" p-2 border-b-2">Cart is Empty</div>
+          <div className="p-2 border-b-2">
+            {itemArr.length > 0
+              ? `You have ${itemArr.length} in the Cart`
+              : 'Cart is Empty'}
+          </div>
           {itemArr.length > 0 ? (
-            itemArr.map((item, index) => (
-              <div key={index} className="flex justify-between mt-8">
+            itemArr.map((item) => (
+              <div key={item.id} className="flex justify-between mt-8">
                 <img className="w-20" src={item.url} alt="" />
                 <div>
                   <div className="h-full flex flex-col justify-between">
                     <div className="ml-3">{item.title}</div>
                     <div className="flex ml-auto gap-3 items-center">
                       <div className="ml-3">
-                        $ {item.price} x {index + 1}
+                        $ {item.price} x {item.quantity}
                       </div>
                       <button className="bg-yellow-100 border rounded-xl shadow-md p-1">
                         Remove
@@ -106,13 +122,25 @@ export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
               </div>
             ))
           ) : (
-            <div className="flex justify-between mt-8">
-              {/* Empty cart message */}
-            </div>
+            <div className="flex justify-between mt-8"></div>
           )}
         </section>
       </div>
-      <MyDialog setIsOpen={setIsOpen} modalItem={modalItem} isOpen={isOpen} />
+      <MyDialog
+        setIsOpen={setIsOpen}
+        modalItem={modalItem}
+        addToCart={addToCart}
+        isOpen={isOpen}
+        item={{
+          quantity: 0,
+          id: modalItem.id,
+          title: modalItem.title,
+          url: modalItem.url,
+          price: modalItem.price,
+          desc: modalItem.desc,
+          size: modalItem.size,
+        }}
+      />
     </>
   );
 };
