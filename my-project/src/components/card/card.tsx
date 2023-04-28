@@ -9,13 +9,17 @@ export const Card = ({
   addToCart,
 }: Icardprops) => {
   const handleAddToCart = () => {
-    addToCart(item);
+    const newItem = {
+      ...item,
+      size: [],
+    };
+    addToCart(newItem);
   };
 
   return (
     <div className="col-span-1 flex flex-col justify-between gap-1 shadow-md p-2 rounded-md">
       <img
-        onClick={(e) => {
+        onClick={() => {
           setIsOpen(true);
           setModalItem(item);
           console.log(item);

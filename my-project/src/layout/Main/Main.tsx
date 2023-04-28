@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Card } from '../../components/card/Card';
-import { Ialikhadmbashi, Imain } from '../../type';
+import { Iitem, Imain } from '../../type';
 import { MyDialog } from '../../components/modal/model';
 
-export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
+export const Main = ({
+  db,
+  handleFilter,
+  handleOrder,
+}: Omit<Imain, 'setIsOpen' | 'isOpen' | 'setModalItem' | 'modalItem'>) => {
   const [modalItem, setModalItem] = useState({
     id: 1,
     title: 'Frill mini',
@@ -13,9 +17,9 @@ export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
     size: ['XS', 'S', 'XL', 'XXL', 'ALL'],
   });
   const [isOpen, setIsOpen] = useState(false);
-  const [itemArr, setItemArr] = useState<Ialikhadmbashi[]>([]);
+  const [itemArr, setItemArr] = useState<Iitem[]>([]);
 
-  const addToCart = (item: Ialikhadmbashi) => {
+  const addToCart = (item: Iitem) => {
     const updatedItemArr = [...itemArr];
     const itemIndex = updatedItemArr.findIndex(
       (cartItem) => cartItem.id === item.id
@@ -97,11 +101,12 @@ export const Main = ({ db, handleFilter, handleOrder }: Imain) => {
                     setIsOpen={setIsOpen}
                     key={item.id}
                     className={'p-1'}
-                    item={item}
+                    item={{ ...item, quantity: 0 }}
                     setModalItem={setModalItem}
                     setItemArr={setItemArr}
                     itemArr={itemArr}
                     addToCart={addToCart}
+                    modalItem={modalItem} // Add modalItem prop here
                   />
                 )
               )}

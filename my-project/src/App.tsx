@@ -3,10 +3,9 @@ import { Header } from './layout/Harder/header';
 import { Footer } from './layout/Footer/footer';
 import { Main } from './layout/Main/Main';
 import { dbType } from './type';
-import { MyDialog } from './components/modal/model';
 
 function App() {
-  const [db, setDb] = useState<dbType[]>();
+  const [db, setDb] = useState<dbType[]>([]);
   const [size, setSize] = useState('ALL');
   const [order, setOrder] = useState('lowest');
 

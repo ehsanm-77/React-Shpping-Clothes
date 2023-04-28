@@ -2,7 +2,6 @@ export interface Icardprops {
   className: string;
   item: {
     quantity: number;
-
     id: number;
     title: string;
     url: string;
@@ -30,27 +29,18 @@ export interface Icardprops {
     desc: string;
     size: string[];
   };
-  setItemArr: React.Dispatch<
-    React.SetStateAction<{
-      id: number;
-      title: string;
-      url: string;
-      price: number;
-      desc: string;
-      size: string[];
-    }>
-  >;
-  itemArr: Ialikhadmbashi[];
-  addToCart: (item: Ialikhadmbashi) => void;
+  setItemArr: React.Dispatch<React.SetStateAction<Iitem[]>>; // Update the type here
+  itemArr: Iitem[];
+  addToCart: (item: Iitem) => void;
 }
-export interface Ialikhadmbashi {
+export interface Iitem {
   quantity: number;
   id: number;
   title: string;
   url: string;
   price: number;
   desc: string;
-  size: [];
+  size: string[];
 }
 export type dbType = {
   quantity: number;
@@ -97,7 +87,7 @@ export interface Imodal {
     desc: string;
     size: string[];
   };
-  addToCart: (item: Ialikhadmbashi) => void;
+  addToCart: (item: Iitem) => void;
   item: {
     quantity: number;
     id: number;
